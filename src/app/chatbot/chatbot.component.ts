@@ -18,7 +18,9 @@ export class ChatbotComponent {
     this.chatMessages.push({ role: 'user', content: userMessage });
     this.openAiApiService.sendMessage(this.userMessage)
       .subscribe(response => {
-        this.assistantReply = response.reply;
+        console.log("got resosponse" , response);
+        console.log("got resosponse" , response.status);
+        this.assistantReply = response.alephalpha.result;
         this.chatMessages.push({ role: 'assistant', content: this.assistantReply });
         this.userMessage = '';
       });
